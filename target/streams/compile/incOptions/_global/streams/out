@@ -1,0 +1,47 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /Users/amitrovantauro/Documents/tech-test-akka/credit-cards-akka/target/scala-2.13/classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCardRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCard.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCard$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCardRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCardRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCard.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCard$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCardRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCardRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCard.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCard$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsResponse$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CsCardRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsResponse.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$CreditCardRequest$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	QuickstartApp$ScoredCardsRequest.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /Users/amitrovantauro/Documents/tech-test-akka/credit-cards-akka/target/scala-2.13/classes.bak[0m
