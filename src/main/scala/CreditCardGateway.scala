@@ -12,15 +12,11 @@ import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-trait CreditCardGatewayService {
-  def fetchCsCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CsCardResponse]]
-  def fetchScoredCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[ScoredCardsResponse]]
-}
+final case class CreditCardGatewayError(msg: String) extends RuntimeException(msg)
 
-trait CreditCardGatewaySlice extends CreditCardGatewayService {
+class CreditCardGateway {
 
-  val creditCardGatewayService: CreditCardGatewayService = new CreditCardGatewayService {
-    override def fetchCsCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CsCardResponse]] = {
+    def fetchCsCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CsCardResponse]] = {
       implicit val jsonStreamingSupport: JsonEntityStreamingSupport =
         EntityStreamingSupport.json()
 
@@ -29,18 +25,17 @@ trait CreditCardGatewaySlice extends CreditCardGatewayService {
         uri = "https://app.clearscore.com/api/global/backend-tech-test/v1/cards",
         entity = HttpEntity(ContentTypes.`application/json`, entityJson.prettyPrint))
       Http().singleRequest(clientReq).flatMap(r => Unmarshal(r).to[List[CsCardResponse]]).recover {
-        case e: Exception => List.empty
+        case e: Exception => throw CreditCardGatewayError(s"${e}")
       }
     }
 
-    override def fetchScoredCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[ScoredCardsResponse]] = {
+  def fetchScoredCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[ScoredCardsResponse]] = {
       val entityJsonSc: JsValue = ScoredCardsRequest(req.name, req.creditScore, req.salary).toJson
       val clientReqSc = HttpRequest(method = HttpMethods.POST,
         uri = "https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards",
         entity = HttpEntity(ContentTypes.`application/json`, entityJsonSc.prettyPrint))
       Http().singleRequest(clientReqSc).flatMap(r => Unmarshal(r).to[List[ScoredCardsResponse]]).recover {
-        case e: Exception => List.empty
+        case e: Exception => throw CreditCardGatewayError(s"${e}")
       }
     }
-  }
 }

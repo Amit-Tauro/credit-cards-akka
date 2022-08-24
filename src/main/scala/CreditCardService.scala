@@ -6,17 +6,11 @@ import akka.actor.typed.ActorSystem
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-trait CreditCardService {
-  def creditCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CreditCard]]
-}
-
-trait CreditCardSlice extends CreditCardService with CreditCardGatewaySlice {
-
-  val creditCardService: CreditCardService = new CreditCardService {
-    override def creditCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CreditCard]] = {
+class CreditCardService(val gateway: CreditCardGateway) {
+    def creditCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CreditCard]] = {
       for {
-        csList <- creditCardGatewayService.fetchCsCards(req)
-        scList <- creditCardGatewayService.fetchScoredCards(req)
+        csList <- gateway.fetchCsCards(req)
+        scList <- gateway.fetchScoredCards(req)
       } yield sortCreditCards(csList, scList)
     }
 
@@ -42,5 +36,4 @@ trait CreditCardSlice extends CreditCardService with CreditCardGatewaySlice {
     private def sortingScore(cs1: CreditCard, cs2: CreditCard): Boolean = {
       cs1.cardScore > cs2.cardScore
     }
-  }
 }

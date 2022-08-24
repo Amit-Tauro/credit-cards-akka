@@ -8,20 +8,15 @@ import JsonFormats._
 
 import spray.json.DefaultJsonProtocol._
 import akka.actor.typed.ActorSystem
-import akka.actor.typed.scaladsl.Behaviors
-import ExceptionHandler.exceptionHandler
 
-trait CreditCardRoute extends CreditCardSlice {
+import scala.concurrent.ExecutionContextExecutor
 
-  implicit val system = ActorSystem(Behaviors.empty, "my-system")
-  // needed for the future flatMap/onComplete in the end
-  implicit val executionContext = system.executionContext
-
-  val route = handleExceptions(exceptionHandler) {
+class CreditCardRoute(val service: CreditCardService)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]) {
+  val route = handleExceptions(MyExceptionHandler.myExceptionHandler) {
     path("creditcards") {
       post {
         entity(as[CreditCardRequest]) { req =>
-          onSuccess(creditCardService.creditCards(req)) { res =>
+          onSuccess(service.creditCards(req)) { res =>
             complete((StatusCodes.OK, res))
           }
         }
