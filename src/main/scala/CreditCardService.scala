@@ -9,13 +9,12 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 class CreditCardService(val gateway: CreditCardGateway) {
     def creditCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CreditCard]] = {
       for {
-        csList <- gateway.fetchCsCards(req)
-        scList <- gateway.fetchScoredCards(req)
-      } yield sortCreditCards(csList, scList)
+        csCards <- gateway.fetchCsCards(req)
+        scoredCards <- gateway.fetchScoredCards(req)
+      } yield sortCreditCards(csCards, scoredCards)
     }
 
     private def sortCreditCards(cs: List[CsCardResponse], sc: List[ScoredCardsResponse]): List[CreditCard] = {
-      println(s"sortCards: ${cs}")
       val csCards: List[CreditCard] = cs.map(r => CreditCard(provider = "CSCards",
         name = r.cardName, apr = r.apr, cardScore = CsScore(r)))
       val scCards: List[CreditCard] = sc.map(r => CreditCard(provider = "ScoredCards",
