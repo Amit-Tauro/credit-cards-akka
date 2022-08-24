@@ -1,6 +1,11 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/amitrovantauro/Documents/tech-test-akka/credit-cards-akka/src/main/scala/QuickstartApp.scala:44:24: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : (akka.http.scaladsl.model.StatusCodes.Success, List[com.tauro.QuickstartApp.CreditCard])[0m
-[0m[[0m[31merror[0m] [0m[0m required: akka.http.scaladsl.marshalling.ToResponseMarshallable[0m
-[0m[[0m[31merror[0m] [0m[0m              complete((StatusCodes.OK, res))[0m
-[0m[[0m[31merror[0m] [0m[0m                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/amitrovantauro/Documents/tech-test-akka/credit-cards-akka/src/main/scala/QuickstartApp.scala:26:8: object creation impossible.[0m
+[0m[[0m[31merror[0m] [0m[0mMissing implementations for 3 members. Stub implementations follow:[0m
+[0m[[0m[31merror[0m] [0m[0m  // Members declared in com.tauro.CreditCardGatewayService[0m
+[0m[[0m[31merror[0m] [0m[0m  def fetchCsCards(req: com.tauro.JsonFormats.CreditCardRequest)(implicit ec: scala.concurrent.ExecutionContextExecutor, implicit sys: akka.actor.typed.ActorSystem[_]): scala.concurrent.Future[List[com.tauro.JsonFormats.CsCardResponse]] = ???[0m
+[0m[[0m[31merror[0m] [0m[0m  def fetchScoredCards(req: com.tauro.JsonFormats.CreditCardRequest)(implicit ec: scala.concurrent.ExecutionContextExecutor, implicit sys: akka.actor.typed.ActorSystem[_]): scala.concurrent.Future[List[com.tauro.JsonFormats.ScoredCardsResponse]] = ???[0m
+[0m[[0m[31merror[0m] [0m[0m  [0m
+[0m[[0m[31merror[0m] [0m[0m  // Members declared in com.tauro.CreditCardService[0m
+[0m[[0m[31merror[0m] [0m[0m  def creditCards(req: com.tauro.JsonFormats.CreditCardRequest)(implicit ec: scala.concurrent.ExecutionContextExecutor, implicit sys: akka.actor.typed.ActorSystem[_]): scala.concurrent.Future[List[com.tauro.JsonFormats.CreditCard]] = ???[0m
+[0m[[0m[31merror[0m] [0m[0mobject QuickstartApp extends Cake {[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
