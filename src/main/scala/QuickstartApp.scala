@@ -19,11 +19,12 @@ import scala.concurrent.{ExecutionContextExecutor, Future}
 import scala.util.parsing.json.JSONObject
 import akka.http.scaladsl.common.EntityStreamingSupport
 import akka.http.scaladsl.common.JsonEntityStreamingSupport
+//
+//trait Cake extends CreditCardRoute with CreditCardSlice with CreditCardGatewaySlice
 
-trait Cake extends CreditCardRoute with CreditCardSlice with CreditCardGatewaySlice
 
+object QuickstartApp extends CreditCardRoute with CreditCardSlice with CreditCardGatewaySlice {
 
-object QuickstartApp extends Cake {
 
 //  creditCardService.creditCards(req)
 
