@@ -11,7 +11,7 @@ import akka.actor.typed.ActorSystem
 
 import scala.concurrent.ExecutionContextExecutor
 
-class CreditCardRoute(val service: CreditCardService)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]) {
+class CreditCardRoute(service: CreditCardSlice)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]) {
   val route = handleExceptions(MyExceptionHandler.myExceptionHandler) {
     path("creditcards") {
       post {

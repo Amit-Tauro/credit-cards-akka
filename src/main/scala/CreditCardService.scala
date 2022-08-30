@@ -6,7 +6,11 @@ import akka.actor.typed.ActorSystem
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
-class CreditCardService(val gateway: CreditCardGateway) {
+trait CreditCardSlice {
+  def creditCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CreditCard]]
+}
+
+class CreditCardService(val gateway: CreditCardGateway) extends CreditCardSlice {
     def creditCards(req: CreditCardRequest)(implicit ec: ExecutionContextExecutor, sys: ActorSystem[_]): Future[List[CreditCard]] = {
       for {
         csCards <- gateway.fetchCsCards(req)
